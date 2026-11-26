@@ -1,0 +1,13 @@
+# heroes.csv ustidan yoziladi. Format: Qahramon,ult1,ult2,ult3
+#
+# Level-1 qiymati heroes.csv bilan mos tushgan; 2-3 leveli patch yozuvlaridan (Liquipedia, "a-b" oraliq, o'rtasi chiziqli):
+Hylos,40,36,32
+Hanabi,40,35,30
+Lylia,45,40,35
+Vale,36,33,30
+Zhask,48,44,40
+# Zaryadli ultlar: bitta zaryadning tiklanish vaqti (fandom wiki "Cooldown" sahifasi):
+Clint,10,8,6
+Natalia,30,24,18
+# Julian: ult 1-levelda ochiladi (wiki). 7s = foydalanuvchi aytgan qiymat:
+Julian,7,7,7

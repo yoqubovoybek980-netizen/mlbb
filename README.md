@@ -1,23 +1,23 @@
-# MLBB CD Tracker (2-qadam: ekranni o'qish)
+# MLBB CD Tracker (v4: hammasi panelda)
 
-## GitHub'da build qilish
-1. Hamma fayllarni yangi GitHub repoga yukla.
-2. **Actions** > "Build APK" (yoki Run workflow).
-3. Tugagach **Artifacts** > `mlbb-cd-tracker-apk` ni yuklab ol, ichidagi `app-debug.apk` ni o'rnat.
+Ekranni o'qimaydi, o'yin fayllariga tegmaydi. Faqat overlay taymer.
 
-## Ishlatish
-1. Ilovani och: "boshqa ilovalar ustida chizish" va "ekranni yozish" ruxsatlarini ber.
-2. MLBB'ni och. O'yin boshlanganda scoreboard'ni och (hamma spell/ult tayyor paytda).
-3. Panelni (☰ CD ni surib) ikonkalarni to'smaydigan joyga qo'y.
-4. **Kalib** bos: 10 ta katak chiqadi (1F = 1-raqib spelli, 1U = 1-raqib ulti ...). Ularni ikonkalar ustiga surib qo'y.
-5. **Saqla** bos: kataklar yo'qoladi va "Baza" (tayyor holatdagi yorqinlik) olinadi.
-6. **Auto: ON** bos. Ikonka bazaning 65% dan pastga tushsa (xira = CDda), taymer o'zi boshlanadi.
-7. Pastdagi raqamlar (F92 U88 ...) = har ikonkaning bazaga nisbati, %. CDda bo'lganda ~30-50% atrofiga tushishi kerak.
-   Agar tushmasa, `OverlayService.kt` dagi `DIM_RATIO` ni o'zgartir.
+## Build
+Repoga yukla > Actions > "Build APK" > Artifacts > app-debug.apk
 
-Qo'lda taymer ham ishlaydi: F/U ni bos, yana bossang bekor. U ni uzoq bos: ult CD almashadi. CDR: raqib CD kamayishi.
+## Panel
+Qator: `[Qahramon]  −  Lv n  +  [U]  [S]`
+- **Qahramon tugmasi**: bos > ro'yxat ochiladi. Tepadagi qidiruv maydoniga nom yozsang ro'yxat filtrlanadi (masalan "gus" > Gusion). **Uzoq bos** > ult CD ni 3 level uchun +/- bilan kiritish (nom bilan telefonga saqlanadi, bir marta yetadi).
+- **− / +**: qahramon leveli (1-15). Ult CD 4 / 8 / 12-levelda o'zgaradi. 4-levelgacha `U —`.
+- **U**: ult taymeri. **S**: battle spell taymeri (bos = boshlash/bekor). **S ni uzoq bos** > spell tanlash.
+- **CDR**: raqib CD kamayishi (0-40%). **✕**: to'xtatish.
+- `U ✓60?` dagi **?** = CD noma'lum (taxminiy 60). Qahramonni uzoq bosib CD ni kirit.
+- Ro'yxatda yo'q yangi qahramon: "Boshqa" ni tanla.
 
-## Cheklovlar
-- Faqat scoreboard ochiq paytda ikonkalar ko'rinadi. Yopiq bo'lsa, taymer ochgan paytingdan boshlanadi.
-- Har o'yinda Kalib/Saqla'ni qayta qil (baza yangilanishi uchun).
-- Moonton uchinchi tomon ilovalarni qoidabuzarlik deb hisoblashi mumkin. Ikkinchi akkauntda sina.
+## Baza
+- `assets/heroes.csv`: sening faylingning o'zi (MLBBDex, 2026-11-19). Qahramonlar ro'yxati shundan olinadi.
+- `assets/heroes_patch.csv`: heroes.csv ustidan yoziladigan tuzatishlar (2-3 level qiymatlari va h.k.).
+- `assets/spells.csv`: battle spell CDlari.
+- Faylda faqat bitta CD bo'lsa, u 1-daraja qiymati deb olinadi va panelda `U ✓40~` ko'rinadi (`~` = keyingi levellarda kamroq bo'lishi mumkin).
+- `?` = CD umuman noma'lum (taxminiy 60). `U —` = ult hali ochilmagan yoki qahramonda ult yo'q.
+- Panelda uzoq bosib kiritgan CDlaring (telefonda saqlanadi) hamma narsadan ustun turadi.
